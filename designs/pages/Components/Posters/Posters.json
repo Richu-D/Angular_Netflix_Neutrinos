@@ -1,0 +1,229 @@
+[
+    {
+        "id": "sd_IxU49d5A3K95lgP6",
+        "type": "tab",
+        "createdDate": "2023-04-07T17:15:19.160Z",
+        "label": "Posters",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "PostersComponent"
+    },
+    {
+        "id": "sd_NMcpbQpnDfJ4Vz0S",
+        "type": "OnInit",
+        "z": "sd_IxU49d5A3K95lgP6",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "getDatas",
+        "inputVariables": [
+            {
+                "key": "Title",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            },
+            {
+                "key": "genresCode",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [
+            {
+                "key": "posters",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "getDatas",
+        "category": "Lifecycle Events",
+        "x": 85,
+        "y": 80,
+        "wires": [
+            [
+                "sd_xKtwMpMz5Jy5cjor"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "PostersComponent"
+    },
+    {
+        "id": "sd_V7NE3H6v6bJFWVqo",
+        "type": "PageCallService",
+        "z": "sd_IxU49d5A3K95lgP6",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "discover Request",
+        "outputs": 1,
+        "isValidNode": true,
+        "noerr": 0,
+        "service": {
+            "id": "sd_zpXBZRkP0PcNvs8V",
+            "type": "tab",
+            "createdDate": "2023-04-08T05:06:06.063Z",
+            "label": "discoverRequest",
+            "disabled": false,
+            "info": "",
+            "functionSeq": 0,
+            "tabType": "client"
+        },
+        "flow": {
+            "flowId": "sd_CvfWGcwP1WeIusgM",
+            "flowName": "withoutflow"
+        },
+        "inputVariables": [
+            {
+                "key": "genresCode",
+                "map": true,
+                "valueType": "bh",
+                "value": "pageInput.genresCode"
+            },
+            {
+                "key": "posters",
+                "map": true,
+                "valueType": "bh",
+                "value": ""
+            }
+        ],
+        "outputMapping": [
+            {
+                "mapVarType": "input",
+                "key": "posters",
+                "valueType": "this.page",
+                "value": "posters",
+                "mapVarName": "posters",
+                "localVar": "this.page.posters"
+            }
+        ],
+        "serviceImportPath": "app/sd-services/discoverRequest",
+        "startName": "withoutflow",
+        "inputParams": [
+            "bh.pageInput.genresCode",
+            null
+        ],
+        "accept_bh": false,
+        "accept_csd": true,
+        "functionName": "discoverRequest",
+        "category": "General",
+        "x": 345,
+        "y": 80,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostersComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xKtwMpMz5Jy5cjor",
+        "type": "PageVariables",
+        "z": "sd_IxU49d5A3K95lgP6",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "Title",
+                "typedIpValue": {
+                    "type": "bh.input",
+                    "value": "Title"
+                }
+            }
+        ],
+        "functionName": "sd_xKtwMpMz5Jy5cjor",
+        "category": "Function",
+        "x": 220,
+        "y": 80,
+        "wires": [
+            [
+                "sd_V7NE3H6v6bJFWVqo"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostersComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_xXlUF4lRJUZBUnNC",
+        "type": "PageStart",
+        "z": "sd_IxU49d5A3K95lgP6",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "gotoDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "gotoDetails",
+        "category": "General",
+        "x": 85,
+        "y": 200,
+        "wires": [
+            [
+                "sd_VYQpkriOlA4xjkob"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "PostersComponent"
+    },
+    {
+        "id": "sd_VYQpkriOlA4xjkob",
+        "type": "Navigation",
+        "z": "sd_IxU49d5A3K95lgP6",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "gotoPage",
+        "path": "/movieDetails/:id",
+        "pathMap": "",
+        "pathparams": [
+            {
+                "paramKey": "id",
+                "paramValue": {
+                    "type": "bh.input",
+                    "value": "id"
+                }
+            }
+        ],
+        "pathparamsMap": "",
+        "qparams": "",
+        "qparamsMap": "",
+        "qparamsArray": "",
+        "resultMapping": "",
+        "functionName": "gotoPage",
+        "category": "Navigation",
+        "x": 205,
+        "y": 200,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "PostersComponent",
+        "generated": true
+    }
+]

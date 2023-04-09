@@ -1,0 +1,190 @@
+[
+    {
+        "id": "sd_Ln5dT2OsZ9YoUrIG",
+        "type": "tab",
+        "createdDate": "2023-04-08T12:33:12.771Z",
+        "label": "movieDetails",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "movieDetails",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_JeJpyXJhVEP56Ugl",
+        "type": "Start",
+        "z": "sd_Ln5dT2OsZ9YoUrIG",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "url",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "movieData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "castData",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            },
+            {
+                "key": "castUrl",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "sd_JeJpyXJhVEP56Ugl",
+        "category": "General",
+        "x": 65,
+        "y": 60,
+        "wires": [
+            [
+                "sd_nnO0wM5KzC8wJZbg"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "movieDetails"
+    },
+    {
+        "id": "sd_nnO0wM5KzC8wJZbg",
+        "type": "HttpRequest",
+        "z": "sd_Ln5dT2OsZ9YoUrIG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.input.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.movieData",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "movieData"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_nnO0wM5KzC8wJZbg",
+        "category": "HTTP",
+        "x": 165,
+        "y": 60,
+        "wires": [
+            [
+                "sd_Q6TVsltlO200mSdF"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "movieDetails",
+        "generated": true
+    },
+    {
+        "id": "sd_Q6TVsltlO200mSdF",
+        "type": "HttpRequest",
+        "z": "sd_Ln5dT2OsZ9YoUrIG",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.input.castUrl",
+        "urlMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "castUrl"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.input.castData",
+        "resultMappingObj": {
+            "mapVarType": "bh.input",
+            "mapVarValue": "castData"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_Q6TVsltlO200mSdF",
+        "category": "HTTP",
+        "x": 260,
+        "y": 60,
+        "wires": [
+            [
+                "sd_2zRrPFgyMV7jnMRW"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "movieDetails",
+        "generated": true
+    },
+    {
+        "id": "sd_2zRrPFgyMV7jnMRW",
+        "type": "Script",
+        "z": "sd_Ln5dT2OsZ9YoUrIG",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.castData = bh.input.castData.cast;",
+        "functionName": "sd_2zRrPFgyMV7jnMRW",
+        "category": "Function",
+        "x": 352,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "movieDetails",
+        "generated": true
+    }
+]

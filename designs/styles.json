@@ -1,0 +1,18 @@
+{
+    "classes": [
+        "navbar",
+        "bold",
+        "banner",
+        "banner-title",
+        "banner-overview",
+        "poster-row",
+        "posterimg",
+        "largeposter",
+        "bigPosterImage",
+        "navbar-icon",
+        "cast-Image",
+        "cast-details",
+        "movie-description-container",
+        "netflix-btn"
+    ]
+}

@@ -1,0 +1,19 @@
+<bh-Navbar></bh-Navbar>
+<div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true">
+  <mat-form-field style="width:100%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+    <input matInput [(ngModel)]="page.search" placeholder="Input" [required]="false" fxFlex="100">
+    <mat-label>search</mat-label>
+  </mat-form-field><button mat-button style="height:100%;" class="netflix-btn" (click)="search()">Search</button>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let poster of page.searchResult"><img [src]="&apos;https://image.tmdb.org/t/p/w92/&apos;+poster.poster_path" (click)="gotoDetails(poster.id)" class="posterimg">
+    <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <h2>
+        {{poster.original_title}}
+      </h2>
+      <p>
+        {{poster.overview}}
+      </p>
+    </div>
+  </div>
+</div>

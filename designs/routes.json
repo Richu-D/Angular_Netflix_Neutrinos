@@ -1,0 +1,28 @@
+{
+    "routes": [
+        {
+            "path": "home",
+            "component": "HomeComponent"
+        },
+        {
+            "path": "movieDetails/:id",
+            "component": "movieDetailsComponent",
+            "data": "",
+            "pathMatch": ""
+        },
+        {
+            "path": "search",
+            "component": "SearchComponent"
+        },
+        {
+            "path": "''",
+            "redirectTo": "home",
+            "pathMatch": "full",
+            "default": true
+        },
+        {
+            "path": "**",
+            "component": "PageNotFoundComponent"
+        }
+    ]
+}

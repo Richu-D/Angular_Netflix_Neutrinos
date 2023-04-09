@@ -1,0 +1,29 @@
+<bh-Navbar></bh-Navbar>
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div fxLayout="column " fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="100" fxFlex.gt-sm="30"><img [src]="&apos;https://image.tmdb.org/t/p/original&apos;+page.movieData?.poster_path" class="bigPosterImage"></div>
+  <div fxLayout="column wrap" fxFlex="70" fxLayoutAlign="start stretch" [fxShow]="true" fxFlex.sm="100" fxFlex.gt-sm="70" fxFlex.xs="100">
+    <div fxLayout="column wrap" class="movie-description-container" fxLayoutAlign="space-between stretch" [fxShow]="true">
+      <h1>
+        {{page.movieData?.original_title}}
+      </h1>
+      <p>
+        {{page.movieData?.overview}}
+      </p>
+      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button class="netflix-btn" fxFlex.gt-sm="20" fxFlex.sm="50" fxFlex.xs="100">Watch Trailer</button></div>
+    </div>
+    <h2>
+      Top Cast</h2>
+    <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let person of page.castData" fxFlex.gt-md="30" fxFlex.md="40" fxFlex.sm="50" fxFlex.xs="100"><img [src]="&apos;https://image.tmdb.org/t/p/w92/&apos;+person.profile_path" alt="Not Available" fxFlex.sm="30" class="cast-Image">
+        <div fxLayout="column wrap" class="cast-details" fxLayoutAlign="center center" [fxShow]="true">
+          <h5>
+            {{person.original_name}}
+          </h5>
+          <h6>
+            {{person.character}}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

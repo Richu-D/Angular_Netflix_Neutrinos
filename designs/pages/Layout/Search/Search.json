@@ -1,0 +1,314 @@
+[
+    {
+        "id": "sd_57heFM3d9JWNQVgh",
+        "type": "tab",
+        "createdDate": "2023-04-08T20:36:42.256Z",
+        "label": "Search",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "SearchComponent"
+    },
+    {
+        "id": "sd_dpYSCFX57mi8w4x6",
+        "type": "OnInit",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "functionName": "sd_dpYSCFX57mi8w4x6",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_qHN72jmxiVW9q0MO"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "SearchComponent"
+    },
+    {
+        "id": "sd_qHN72jmxiVW9q0MO",
+        "type": "PageVariables",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [
+            {
+                "textIp": "search",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            },
+            {
+                "textIp": "searchResult",
+                "typedIpValue": {
+                    "type": "this.page",
+                    "value": ""
+                }
+            }
+        ],
+        "functionName": "sd_qHN72jmxiVW9q0MO",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_12OGPizXQtRCLlYG",
+        "type": "PageStart",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "search",
+        "outputs": 1,
+        "inputVariables": [],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "search",
+        "category": "General",
+        "x": 60,
+        "y": 140,
+        "wires": [
+            [
+                "sd_zU6V93RRBB0H5YAl"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "SearchComponent"
+    },
+    {
+        "id": "sd_ZjbXNJQDEbu2M9QU",
+        "type": "Script",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url=`${bh.local.baseUrl}/search/movie?api_key=${bh.local.secret}&query=${page.search}`\n",
+        "functionName": "sd_ZjbXNJQDEbu2M9QU",
+        "category": "Function",
+        "x": 265,
+        "y": 140,
+        "wires": [
+            [
+                "sd_Ghu8WgZqG7OM6OQy"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_zU6V93RRBB0H5YAl",
+        "type": "Environment",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "secret"
+                },
+                "envProperty": "API_SECRET"
+            },
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "baseUrl"
+                },
+                "envProperty": "BASE_URL"
+            }
+        ],
+        "functionName": "sd_zU6V93RRBB0H5YAl",
+        "category": "General",
+        "x": 160,
+        "y": 140,
+        "wires": [
+            [
+                "sd_ZjbXNJQDEbu2M9QU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_Ghu8WgZqG7OM6OQy",
+        "type": "HttpRequest",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": ""
+        },
+        "resultMapping": "this.page.searchResult",
+        "resultMappingObj": {
+            "mapVarType": "this.page",
+            "mapVarValue": "searchResult"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_Ghu8WgZqG7OM6OQy",
+        "category": "HTTP",
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "sd_HgDYYC2d55Kmm3gS"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_z7xLHBXyQWAz9Z7v",
+        "type": "Log",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 0,
+        "logObject": "this.page.searchResult",
+        "functionName": "sd_z7xLHBXyQWAz9Z7v",
+        "category": "General",
+        "x": 625,
+        "y": 140,
+        "wires": [],
+        "__ssdTypeInputs__": {
+            "logObject": {
+                "type": "this.page",
+                "value": "searchResult",
+                "constant": false
+            }
+        },
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_HgDYYC2d55Kmm3gS",
+        "type": "Script",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.searchResult = page.searchResult.results",
+        "functionName": "sd_HgDYYC2d55Kmm3gS",
+        "category": "Function",
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "sd_z7xLHBXyQWAz9Z7v"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_8JB4ILEBENeICGbK",
+        "type": "PageStart",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "pages",
+        "nodeType": "start",
+        "name": "gotoDetails",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "id",
+                "defaultValue": {
+                    "type": "num",
+                    "value": ""
+                },
+                "output": false
+            }
+        ],
+        "localVariables": [],
+        "flow_type": "sync",
+        "functionName": "gotoDetails",
+        "category": "General",
+        "x": 65,
+        "y": 260,
+        "wires": [
+            [
+                "sd_1Maq3Q7H22hrLFb0"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "SearchComponent"
+    },
+    {
+        "id": "sd_1Maq3Q7H22hrLFb0",
+        "type": "Navigation",
+        "z": "sd_57heFM3d9JWNQVgh",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "gotoPage",
+        "path": "/movieDetails/:id",
+        "pathparams": [
+            {
+                "paramKey": "id",
+                "paramValue": {
+                    "type": "bh.input",
+                    "value": "id"
+                }
+            }
+        ],
+        "functionName": "gotoPage",
+        "category": "Navigation",
+        "x": 185,
+        "y": 260,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "SearchComponent",
+        "generated": true
+    }
+]

@@ -1,0 +1,124 @@
+/*Importing default angular material css theme. */
+
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "nDefaults.scss";
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif !important;
+    // background-color: #000000;
+    // color:white;
+    overflow-x: hidden;
+}
+
+.navbar{
+    font-family: 'Ubuntu', sans-serif;
+    position: sticky;
+    top:0;
+    width: 100%;
+    color:#E50914;
+    background-color: rgb(14 12 12 / 88%);
+    z-index: 100;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.banner{
+    position: relative;
+     height: 600px;
+}
+
+.banner img{
+     height: 600px;
+    object-fit: cover;
+}
+.banner-title , .banner-overview{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.banner-title {
+    color:#E50914;
+    font-weight: bold;
+    font-size: 30px;
+      bottom: 25%;
+}
+
+.banner-overview{
+ color:#ffffff;
+  bottom: 10%;
+}
+
+
+
+.poster-row{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.posterimg{
+    max-height: 200px;
+    object-fit: contain;
+    // width: 100px;
+    box-sizing: content-box;
+    transition: transform 450ms;
+    margin-right: 7px;
+}
+
+.posterimg:hover{
+    transform: scale(1.09);
+    cursor:pointer;
+}
+
+.largeposter{
+    max-height: 300px;
+}
+
+.poster-row::-webkit-scrollbar{
+    display: none;
+}
+
+iframe{
+    display: block;
+    margin: 0 auto;
+}
+
+.bigPosterImage {
+    width:50%;
+    margin: 15px auto;
+}
+
+.navbar-icon{
+    cursor: pointer;
+}
+
+.cast-Image{
+    width: 25%;
+    margin:5px
+}
+
+.cast-details h5{
+    font-size: 1.2rem;
+}
+.cast-details h6{
+    font-size: .8rem;
+}
+.movie-description-container{
+    margin: 1.5rem 0 2rem 0;
+}
+.movie-description-container h1,.movie-description-container p,.movie-description-container button{
+    margin: .6rem;
+}
+.netflix-btn{
+    background-color: rgb(230, 28, 28);
+    font-weight:bold;
+}

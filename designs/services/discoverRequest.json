@@ -1,0 +1,185 @@
+[
+    {
+        "id": "sd_zpXBZRkP0PcNvs8V",
+        "type": "tab",
+        "createdDate": "2023-04-08T05:06:06.063Z",
+        "label": "discoverRequest",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "tabType": "client",
+        "generateNext": true,
+        "serviceName": "discoverRequest",
+        "relativeParentPath": ""
+    },
+    {
+        "id": "sd_w1t8OSopnLw05ilI",
+        "type": "HttpRequest",
+        "z": "sd_zpXBZRkP0PcNvs8V",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "method": "get",
+        "methodMappingObj": {},
+        "urlMapping": "bh.local.url",
+        "urlMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "url"
+        },
+        "ret": "json",
+        "retMappingObj": {},
+        "observe": "",
+        "observeMappingObj": {},
+        "reportProgress": false,
+        "withCreds": false,
+        "reqBodyObj": {
+            "mapVarType": "bh",
+            "mapVarValue": ""
+        },
+        "resultMapping": "bh.local.responce",
+        "resultMappingObj": {
+            "mapVarType": "bh.local",
+            "mapVarValue": "responce"
+        },
+        "headers": {},
+        "headersObj": [],
+        "headerMappingObj": {},
+        "params": {},
+        "paramsObj": [],
+        "paramMappingObj": {},
+        "functionName": "sd_w1t8OSopnLw05ilI",
+        "category": "HTTP",
+        "x": 445,
+        "y": 60,
+        "wires": [
+            [
+                "sd_gd3Aym8lqUarYGAQ"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "discoverRequest",
+        "generated": true
+    },
+    {
+        "id": "sd_gd3Aym8lqUarYGAQ",
+        "type": "Script",
+        "z": "sd_zpXBZRkP0PcNvs8V",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.input.posters = bh.local.responce.results;\n",
+        "functionName": "sd_gd3Aym8lqUarYGAQ",
+        "category": "Function",
+        "x": 565,
+        "y": 60,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "discoverRequest",
+        "generated": true
+    },
+    {
+        "id": "sd_c5JibFmdmI4DvjY1",
+        "type": "Script",
+        "z": "sd_zpXBZRkP0PcNvs8V",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "bh.local.url = `${bh.local.baseUrl}/discover/movie?api_key=${bh.local.secret}&with_genres=${bh.input.genresCode}`",
+        "functionName": "sd_c5JibFmdmI4DvjY1",
+        "category": "Function",
+        "x": 325,
+        "y": 60,
+        "wires": [
+            [
+                "sd_w1t8OSopnLw05ilI"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "discoverRequest",
+        "generated": true
+    },
+    {
+        "id": "sd_CvfWGcwP1WeIusgM",
+        "type": "Start",
+        "z": "sd_zpXBZRkP0PcNvs8V",
+        "viewType": "client-server",
+        "nodeType": "start",
+        "name": "withoutflow",
+        "outputs": 1,
+        "inputVariables": [
+            {
+                "key": "genresCode",
+                "defaultValue": {
+                    "type": "str",
+                    "value": ""
+                },
+                "output": false
+            },
+            {
+                "key": "posters",
+                "defaultValue": {
+                    "type": "any",
+                    "value": ""
+                },
+                "output": true
+            }
+        ],
+        "localVariables": [],
+        "accept_bh": false,
+        "functionName": "withoutflow",
+        "category": "General",
+        "x": 105,
+        "y": 60,
+        "wires": [
+            [
+                "sd_dmFDW8juuAQ3tEKd"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "discoverRequest"
+    },
+    {
+        "id": "sd_dmFDW8juuAQ3tEKd",
+        "type": "Environment",
+        "z": "sd_zpXBZRkP0PcNvs8V",
+        "viewType": "client-pages",
+        "nodeType": "flow",
+        "name": "",
+        "outputs": 1,
+        "envMaps": [
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "baseUrl"
+                },
+                "envProperty": "BASE_URL"
+            },
+            {
+                "flowVar": {
+                    "type": "bh.local",
+                    "value": "secret"
+                },
+                "envProperty": "API_SECRET"
+            }
+        ],
+        "functionName": "sd_dmFDW8juuAQ3tEKd",
+        "category": "General",
+        "x": 205,
+        "y": 60,
+        "wires": [
+            [
+                "sd_c5JibFmdmI4DvjY1"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "discoverRequest",
+        "generated": true
+    }
+]

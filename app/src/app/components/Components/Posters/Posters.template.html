@@ -1,0 +1,8 @@
+<div>
+  {{Title}}
+  <div fxLayout="row " class="poster-row" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div *ngFor="let poster of page.posters">
+      <img [src]="&apos;https://image.tmdb.org/t/p/w500&apos;+poster.poster_path" (click)="gotoDetails(poster.id)" class="posterimg">
+    </div>
+  </div>
+</div>

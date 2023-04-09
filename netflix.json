@@ -1,0 +1,13 @@
+{
+    "displayName": "Netflix",
+    "appName": "netflix",
+    "description": "a sample Netflix clone application build with TMDB API",
+    "lastModified": "2023-04-07T07:08:45.194Z",
+    "imgSourcePath": "appIcon-1680851324748.png",
+    "version": "1.0.0",
+    "appType": "uiOnly",
+    "templateName": "blank",
+    "createDate": "2023-04-07T07:08:44.746Z",
+    "analyticsId": "bab0a99f-ac7c-6470-95a1-1007c70c171a",
+    "createdStudioVersion": "9.1.2"
+}

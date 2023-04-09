@@ -1,0 +1,82 @@
+[
+    {
+        "id": "sd_pE1zhoDREC7LWxy0",
+        "type": "tab",
+        "createdDate": "2023-04-07T07:31:36.680Z",
+        "label": "Home",
+        "disabled": false,
+        "info": "",
+        "functionSeq": 0,
+        "generateNext": true,
+        "serviceName": "HomeComponent"
+    },
+    {
+        "id": "sd_csfjAOTXEbMQGKxL",
+        "type": "OnInit",
+        "z": "sd_pE1zhoDREC7LWxy0",
+        "viewType": "common",
+        "nodeType": "start",
+        "name": "",
+        "inputVariables": [],
+        "localVariables": [],
+        "outputVariables": [],
+        "pageVariables": [],
+        "functionName": "sd_csfjAOTXEbMQGKxL",
+        "category": "Lifecycle Events",
+        "x": 30,
+        "y": 30,
+        "wires": [
+            [
+                "sd_5Fa2ijSVBwrmUhXU"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": true,
+        "serviceName": "HomeComponent"
+    },
+    {
+        "id": "sd_5Fa2ijSVBwrmUhXU",
+        "type": "PageVariables",
+        "z": "sd_pE1zhoDREC7LWxy0",
+        "viewType": "pages",
+        "nodeType": "flow",
+        "name": "",
+        "inputs": 1,
+        "outputs": 1,
+        "operation": "set",
+        "globalVariables": [],
+        "functionName": "sd_5Fa2ijSVBwrmUhXU",
+        "category": "Function",
+        "x": 180,
+        "y": 30,
+        "wires": [
+            [
+                "sd_A6wbpvTxt7aCO8yf"
+            ]
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "HomeComponent",
+        "generated": true
+    },
+    {
+        "id": "sd_A6wbpvTxt7aCO8yf",
+        "type": "Script",
+        "z": "sd_pE1zhoDREC7LWxy0",
+        "viewType": "common",
+        "nodeType": "flow",
+        "name": "",
+        "script": "page.banner = [\n{\nbackdrop_path:\"/ovM06PdF3M8wvKb06i4sjW3xoww.jpg\",\noriginal_title:\"Avatar: The Way of Water\",\noverview:\"Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.\"\n}\n]",
+        "functionName": "sd_A6wbpvTxt7aCO8yf",
+        "category": "Function",
+        "x": 300,
+        "y": 40,
+        "wires": [
+            []
+        ],
+        "__n_excludedFromValidation__": {},
+        "generateNext": false,
+        "serviceName": "HomeComponent",
+        "generated": true
+    }
+]
