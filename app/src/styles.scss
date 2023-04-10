@@ -7,12 +7,13 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
     font-family: 'Ubuntu', sans-serif !important;
-    // background-color: #000000;
-    // color:white;
+    background-color: #000000;
+    color:white;
     overflow-x: hidden;
 }
 
@@ -121,4 +122,16 @@ iframe{
 .netflix-btn{
     background-color: rgb(230, 28, 28);
     font-weight:bold;
+}
+.search-input{
+    width: 100%;
+}
+.search-panal{
+    width: 100%;
+}
+.search-panal input{
+    width:100%;
+    border:1px solid white;
+    height:35px;
+    outline:none;
 }

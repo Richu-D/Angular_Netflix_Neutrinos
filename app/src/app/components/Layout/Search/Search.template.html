@@ -1,17 +1,17 @@
 <bh-Navbar></bh-Navbar>
-<div fxLayout="row " fxLayoutAlign="start stretch" [fxShow]="true">
-  <mat-form-field style="width:100%" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-    <input matInput [(ngModel)]="page.search" placeholder="Input" [required]="false" fxFlex="100">
-    <mat-label>search</mat-label>
+<div fxLayout="row " class="search-panal" fxLayoutAlign="center center" [fxShow]="true">
+  <mat-form-field class="search-input" [appearance]="&apos;standard&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+    <input matInput [(ngModel)]="page.search" placeholder="Search" [required]="false" fxFlex="100" (keyup)="keyEnter($event)">
+
   </mat-form-field><button mat-button style="height:100%;" class="netflix-btn" (click)="search()">Search</button>
 </div>
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
-  <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let poster of page.searchResult"><img [src]="&apos;https://image.tmdb.org/t/p/w92/&apos;+poster.poster_path" (click)="gotoDetails(poster.id)" class="posterimg">
+  <div fxLayout="row wrap" style="padding:10px;height:300px;" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" *ngFor="let poster of page.searchResult" fxFlex.sm="50" fxFlex.md="33" fxFlex.gt-md="25" fxFlex.xs="100"><img [src]="&apos;https://image.tmdb.org/t/p/w92/&apos;+poster.poster_path" (click)="gotoDetails(poster.id)" class="posterimg">
     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
       <h2>
         {{poster.original_title}}
       </h2>
-      <p>
+      <p style="white-space:wrap;height:50px;overflow: hidden;text-overflow: ellipsis;">
         {{poster.overview}}
       </p>
     </div>

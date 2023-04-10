@@ -196,6 +196,10 @@ export class movieDetailsComponent {
         (video) => video.type === 'Trailer'
       ).key;
       console.log(bh.local.trailer);
+      window.open(
+        `https://www.youtube.com/embed/${bh.local.trailer}`,
+        '_blanck'
+      );
 
       //appendnew_next_sd_V0OFQx9i9T6h8Qjc
       return bh;

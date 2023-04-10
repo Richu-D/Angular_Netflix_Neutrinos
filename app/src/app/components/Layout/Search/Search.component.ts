@@ -12,6 +12,7 @@ import {
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 import { Router } from '@angular/router'; //_splitter_
 import { FormControl, Validators, FormBuilder } from '@angular/forms'; //_splitter_
 //append_imports_end
@@ -93,6 +94,21 @@ export class SearchComponent {
     }
   }
 
+  keyEnter(event: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { event: event };
+      bh.local = {};
+
+      bh = this.sd_yTpReBvB8aox16e8(bh);
+      //appendnew_next_keyEnter
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_hH6nC9Yi86tfJqtR');
+    }
+  }
+
   //appendnew_flow_SearchComponent_start
 
   sd_qHN72jmxiVW9q0MO(bh) {
@@ -125,7 +141,7 @@ export class SearchComponent {
       const page = this.page;
       bh.local.url = `${bh.local.baseUrl}/search/movie?api_key=${bh.local.secret}&query=${page.search}`;
 
-      bh = this.sd_Ghu8WgZqG7OM6OQy(bh);
+      bh = this.searchMoviesResult(bh);
       //appendnew_next_sd_ZjbXNJQDEbu2M9QU
       return bh;
     } catch (e) {
@@ -133,7 +149,7 @@ export class SearchComponent {
     }
   }
 
-  async sd_Ghu8WgZqG7OM6OQy(bh) {
+  async searchMoviesResult(bh) {
     try {
       let requestOptions = {
         url: bh.local.url,
@@ -148,7 +164,7 @@ export class SearchComponent {
       );
 
       bh = this.sd_HgDYYC2d55Kmm3gS(bh);
-      //appendnew_next_sd_Ghu8WgZqG7OM6OQy
+      //appendnew_next_searchMoviesResult
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_Ghu8WgZqG7OM6OQy');
@@ -160,11 +176,39 @@ export class SearchComponent {
       const page = this.page;
       page.searchResult = page.searchResult.results;
 
-      this.sd_z7xLHBXyQWAz9Z7v(bh);
+      bh = this.sd_h9uiicALZngY2lI1(bh);
       //appendnew_next_sd_HgDYYC2d55Kmm3gS
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_HgDYYC2d55Kmm3gS');
+    }
+  }
+
+  sd_h9uiicALZngY2lI1(bh) {
+    try {
+      if (
+        this.sdService.operators['gt'](
+          this.page.searchResult.length,
+          0,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_z7xLHBXyQWAz9Z7v(bh);
+      } else if (
+        this.sdService.operators['eq'](
+          this.page.searchResult.length,
+          0,
+          undefined,
+          undefined
+        )
+      ) {
+        bh = this.sd_8G0S8RiTLIM4I4zG(bh);
+      }
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_h9uiicALZngY2lI1');
     }
   }
 
@@ -179,20 +223,83 @@ export class SearchComponent {
     }
   }
 
+  sd_8G0S8RiTLIM4I4zG(bh) {
+    try {
+      this.__page_injector__.get(MatSnackBar).open('No Result Found', 'OK', {
+        duration: 3000,
+        direction: 'ltr',
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+
+      //appendnew_next_sd_8G0S8RiTLIM4I4zG
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_8G0S8RiTLIM4I4zG');
+    }
+  }
+
   async gotoPage(bh) {
     try {
       const { paramObj: qprm, path: path } =
         this.sdService.getPathAndQParamsObj('/movieDetails/:id');
       await this.__page_injector__
         .get(Router)
-        .navigate([
-          this.sdService.formatPathWithParams(path, { id: bh.input.id }),
-        ]);
+        .navigate(
+          [this.sdService.formatPathWithParams(path, { id: bh.input.id })],
+          {
+            queryParams: Object.assign(qprm, ''),
+          }
+        );
 
       //appendnew_next_gotoPage
       return bh;
     } catch (e) {
       return await this.errorHandler(bh, e, 'sd_1Maq3Q7H22hrLFb0');
+    }
+  }
+
+  sd_yTpReBvB8aox16e8(bh) {
+    try {
+      const page = this.page;
+      if (bh.input.event.key !== 'Enter') {
+        return;
+      }
+
+      bh = this.sd_rSpEnxos2mpoSaXJ(bh);
+      //appendnew_next_sd_yTpReBvB8aox16e8
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_yTpReBvB8aox16e8');
+    }
+  }
+
+  sd_rSpEnxos2mpoSaXJ(bh) {
+    try {
+      let outputVariables = this.search();
+
+      //appendnew_next_sd_rSpEnxos2mpoSaXJ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_rSpEnxos2mpoSaXJ');
+    }
+  }
+
+  sd_9R9WNKnfCClKPV3S(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open(bh.error.error.status_message, 'OK', {
+          duration: 3000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+
+      //appendnew_next_sd_9R9WNKnfCClKPV3S
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_9R9WNKnfCClKPV3S');
     }
   }
 
@@ -210,13 +317,23 @@ export class SearchComponent {
     bh.error = e;
     bh.errorSource = src;
     if (
-      false
+      false ||
+      this.sd_5FHZjvDLmvFlKvb5(bh)
       /*appendnew_next_Catch*/
     ) {
       return bh;
     } else {
       throw e;
     }
+  }
+  sd_5FHZjvDLmvFlKvb5(bh) {
+    const nodes = ['sd_Ghu8WgZqG7OM6OQy'];
+    if (nodes.includes(bh.errorSource)) {
+      bh = this.sd_9R9WNKnfCClKPV3S(bh);
+      //appendnew_next_sd_5FHZjvDLmvFlKvb5
+      return true;
+    }
+    return false;
   }
   //appendnew_flow_SearchComponent_Catch
 }

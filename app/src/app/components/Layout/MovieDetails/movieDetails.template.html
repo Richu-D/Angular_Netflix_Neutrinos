@@ -9,7 +9,7 @@
       <p>
         {{page.movieData?.overview}}
       </p>
-      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button class="netflix-btn" fxFlex.gt-sm="20" fxFlex.sm="50" fxFlex.xs="100">Watch Trailer</button></div>
+      <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true"><button mat-button class="netflix-btn" fxFlex.gt-sm="20" fxFlex.sm="50" fxFlex.xs="100" (click)="gotoTrailer(page.movieData.id)">Watch Trailer</button></div>
     </div>
     <h2>
       Top Cast</h2>

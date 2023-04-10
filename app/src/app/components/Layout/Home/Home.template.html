@@ -1,1 +1,12 @@
-<bh-Navbar></bh-Navbar><bh-Posters genresCode="27" Title="Horror"></bh-Posters>
+<bh-Navbar></bh-Navbar>
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+  <div *ngFor="let banner of page.banner" fxFlex="100" class="banner">
+    <img [src]="&apos;https://image.tmdb.org/t/p/original&apos;+banner.backdrop_path" width="100%">
+    <div class="banner-title">
+      {{banner.original_title}}
+    </div>
+    <div class="banner-overview">
+      {{banner.overview}}
+    </div>
+  </div>
+</div><bh-Posters genresCode="27" Title="Horror"></bh-Posters><bh-Posters genresCode="28" Title="Action"></bh-Posters><bh-Posters genresCode="35" Title="Comedy"></bh-Posters>
